@@ -15,41 +15,42 @@ let allFilesCategorized = {},
         }
     };
 
+(async () => {
+    let tree = directoryTree(docPath, {extensions: /\.md$/, attributes: ['type']});
 
-let tree = directoryTree(docPath, {extensions: /\.md$/, attributes: ['type']});
-
-function dirChild(c) {
-    return c.map(child=>{
-        let files = [], dirs = [];
-        child.children.forEach(c=>{
-            if(c.type === 'file'){
-                converter.makeHtml(fs.readFileSync(c.path, 'utf8'));
-                c.meta = converter.getMetadata();
-                files.push(c);
-            }
-            else if(c.type === 'directory'){
-                dirs.push(c);
-            }
-        });
-        return {
-            name: child.name,
-            routes: files.map(f=>{
-                return {
-                    name: f.name.substring(0, f.name.indexOf('.')),
-                    path: f.path.substring(docPath.length).replace(/\\/g, '/'),
-                    meta: f.meta,
+    function dirChild(c) {
+        return c.map(child=>{
+            let files = [], dirs = [];
+            child.children.forEach(c=>{
+                if(c.type === 'file'){
+                    converter.makeHtml(fs.readFileSync(c.path, 'utf8'));
+                    c.meta = converter.getMetadata();
+                    files.push(c);
                 }
-            }),
-            subCategories: dirChild(dirs),
-        }
-    })
-}
+                else if(c.type === 'directory'){
+                    dirs.push(c);
+                }
+            });
+            return {
+                name: child.name,
+                routes: files.map(f=>{
+                    return {
+                        name: f.name.substring(0, f.name.indexOf('.')),
+                        path: f.path.substring(docPath.length).replace(/\\/g, '/'),
+                        meta: f.meta,
+                    }
+                }),
+                subCategories: dirChild(dirs),
+            }
+        })
+    }
 
-tree.children.forEach(child=>{
-    allFilesCategorized[child.name] = dirChild(child.children);
-});
+    tree.children.forEach(child=>{
+        allFilesCategorized[child.name] = dirChild(child.children);
+    });
 
-root.categories = allFilesCategorized;
+    root.categories = allFilesCategorized;
 
-fs.writeFileSync('./api/latest.json', JSON.stringify(root, null, 4));
-console.log("Done");
+    fs.writeFileSync('./api/docs.json', JSON.stringify(root, null, 4));
+    console.log(root);
+})();
