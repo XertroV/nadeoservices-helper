@@ -1,0 +1,10 @@
+[meta]
+name = "NadeoServices Helper"
+author = "Greep"
+category = "NadeoServices"
+
+version = "0.0.1"
+
+[script]
+dependencies = [ "NadeoServices" ]
+timeout = 0
