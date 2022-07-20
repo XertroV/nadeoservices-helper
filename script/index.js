@@ -51,6 +51,6 @@ let allFilesCategorized = {},
 
     root.categories = allFilesCategorized;
 
+    console.log(JSON.stringify(root, null, 2));
     fs.writeFileSync('./api/docs.json', JSON.stringify(root, null, 4));
-    console.log(root);
 })();

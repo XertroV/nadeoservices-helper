@@ -1,0 +1,28 @@
+{
+    "baseUrl": {
+        "Live": "https://live-services.trackmania.nadeo.live",
+        "Club": "https://club.trackmania.nadeo.club",
+        "Competition": "https://competition.trackmania.nadeo.club",
+        "Matchmaking": "https://matchmaking.trackmania.nadeo.club"
+    },
+    "categories": {
+        "NadeoLiveServices": [
+            {
+                "name": "Tracks",
+                "routes": [
+                    {
+                        "name": "check-available",
+                        "path": "NadeoLiveServices/Tracks/check-available.md",
+                        "meta": {
+                            "audience": "NadeoLiveServices",
+                            "description": "Check if track is available on Nadeo Services",
+                            "route": "/api/token/map/{mapUid}",
+                            "method": "GET"
+                        }
+                    }
+                ],
+                "subCategories": []
+            }
+        ]
+    }
+}
