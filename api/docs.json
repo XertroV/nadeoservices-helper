@@ -34,11 +34,11 @@
                 ],
                 "subCategories": [
                     {
-                        "name": "Favories",
+                        "name": "Favorites",
                         "routes": [
                             {
                                 "name": "add-favorite",
-                                "path": "NadeoLiveServices/Tracks/Favories/add-favorite.md",
+                                "path": "NadeoLiveServices/Tracks/Favorites/add-favorite.md",
                                 "meta": {
                                     "audience": "NadeoLiveServices",
                                     "description": "Add a track by its UID to your favorite tracks on Nadeo Services",
@@ -59,7 +59,7 @@
                             },
                             {
                                 "name": "get-favorites",
-                                "path": "NadeoLiveServices/Tracks/Favories/get-favorites.md",
+                                "path": "NadeoLiveServices/Tracks/Favorites/get-favorites.md",
                                 "meta": {
                                     "audience": "NadeoLiveServices",
                                     "description": "Get your favorite tracks on Nadeo Services",
@@ -127,7 +127,7 @@
                             },
                             {
                                 "name": "remove-favorite",
-                                "path": "NadeoLiveServices/Tracks/Favories/remove-favorite.md",
+                                "path": "NadeoLiveServices/Tracks/Favorites/remove-favorite.md",
                                 "meta": {
                                     "audience": "NadeoLiveServices",
                                     "description": "Remove a track by its UID from your favorite tracks on Nadeo Services",
