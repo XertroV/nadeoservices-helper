@@ -21,6 +21,6 @@
   "homepage": "https://github.com/GreepTheSheep/nadeoservices-helper#readme",
   "dependencies": {
     "directory-tree": "^3.3.0",
-    "showdown": "^2.1.0"
+    "markdown-yaml-metadata-parser": "^3.0.0"
   }
 }
