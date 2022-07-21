@@ -1,9 +1,10 @@
 void Main()
 {
-    // if (!OpenplanetHasFullPermissions()) {
-    //     throw("Openplanet has insufficient permissions to run this plugin. Please check you are running the club edition of the game.");
-    //     return;
-    // }
+    if (!OpenplanetHasFullPermissions()) {
+        throw("Insufficient permissions to run this plugin. Please check you are running the club edition of the game.");
+        UI::ShowNotification(Icons::Times + " NadeoServices Helper", "Insufficient permissions to run this plugin. Please check you are running the club edition of the game.", vec4(1, 0, 0, 1), 10000);
+        return;
+    }
 
     NadeoServices::AddAudience(NADEO_LIVE_AUDIENCE);
     while (!NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE)) yield();
@@ -17,4 +18,35 @@ void Main()
     print("Club: " + NadeoServices::BaseURLClub());
     print("Competition: " + NadeoServices::BaseURLCompetition());
     print("Matchmaking: " + NadeoServices::BaseURLMatchmaking());
+}
+
+void RenderMenu()
+{
+    if(UI::BeginMenu(Icons::Book + " NadeoServices Helper")){
+        if (UI::MenuItem(Icons::WindowMaximize + " Open helper menu", "", false, false)) {
+            // coming soon
+        }
+        if(UI::BeginMenu("\\$f90"+Icons::CircleThin + " \\$zAdvanced")){
+            if (UI::MenuItem(Icons::Clipboard + " Auth token", "", false, NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE))) {
+                auto app = cast<CGameManiaPlanet>(GetApp());
+			    auto api = app.ManiaPlanetScriptAPI;
+                IO::SetClipboard("nadeo_v1 t=" + api.Authentication_Token);
+            }
+            UI::Separator();
+            if (UI::MenuItem(Icons::Clipboard + " Live Base URL", "", false, NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE))) {
+                IO::SetClipboard(NadeoServices::BaseURL());
+            }
+            if (UI::MenuItem(Icons::Clipboard + " Club Base URL", "", false, NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE))) {
+                IO::SetClipboard(NadeoServices::BaseURLClub());
+            }
+            if (UI::MenuItem(Icons::Clipboard + " Competition Base URL", "", false, NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE))) {
+                IO::SetClipboard(NadeoServices::BaseURLCompetition());
+            }
+            if (UI::MenuItem(Icons::Clipboard + " Matchmaking Base URL", "", false, NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE))) {
+                IO::SetClipboard(NadeoServices::BaseURLMatchmaking());
+            }
+            UI::EndMenu();
+        }
+        UI::EndMenu();
+    }
 }
