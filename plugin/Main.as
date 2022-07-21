@@ -1,10 +1,27 @@
-void Main()
+Window@ g_window;
+
+void CheckForPermsDisable()
 {
+    // Check if the player is running the club access of the game, if not send a error to the player and disable the plugin
     if (!OpenplanetHasFullPermissions()) {
-        throw("Insufficient permissions to run this plugin. Please check you are running the club edition of the game.");
+        error("Insufficient permissions to run this plugin. Please check you are running the club edition of the game.");
         UI::ShowNotification(Icons::Times + " NadeoServices Helper", "Insufficient permissions to run this plugin. Please check you are running the club edition of the game.", vec4(1, 0, 0, 1), 10000);
+        Meta::ExecutingPlugin().Disable();
         return;
     }
+}
+
+void OnEnabled()
+{
+    startnew(CheckForPermsDisable);
+}
+
+void Main()
+{
+    startnew(CheckForPermsDisable);
+    if (!OpenplanetHasFullPermissions()) return;
+
+    @g_window = Window();
 
     NadeoServices::AddAudience(NADEO_LIVE_AUDIENCE);
     while (!NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE)) yield();
@@ -23,8 +40,8 @@ void Main()
 void RenderMenu()
 {
     if(UI::BeginMenu(Icons::Book + " NadeoServices Helper")){
-        if (UI::MenuItem(Icons::WindowMaximize + " Open helper menu", "", false, false)) {
-            // coming soon
+        if (UI::MenuItem(Icons::WindowMaximize + " Open helper menu", "", g_window.isOpened)) {
+            g_window.isOpened = !g_window.isOpened;
         }
         if(UI::BeginMenu("\\$f90"+Icons::CircleThin + " \\$zAdvanced")){
             if (UI::MenuItem(Icons::Clipboard + " Auth token", "", false, NadeoServices::IsAuthenticated(NADEO_LIVE_AUDIENCE))) {
@@ -49,4 +66,9 @@ void RenderMenu()
         }
         UI::EndMenu();
     }
+}
+
+void RenderInterface()
+{
+    g_window.Render();
 }
