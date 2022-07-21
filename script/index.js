@@ -1,5 +1,4 @@
-const showdown = require('showdown'),
-    converter = new showdown.Converter({metadata: true}),
+const metadataParser = require('markdown-yaml-metadata-parser'),
     directoryTree = require('directory-tree'),
     fs = require('fs'),
     path = require('path'),
@@ -23,8 +22,7 @@ let allFilesCategorized = {},
             let files = [], dirs = [];
             child.children.forEach(c=>{
                 if(c.type === 'file'){
-                    converter.makeHtml(fs.readFileSync(c.path, 'utf8'));
-                    c.meta = converter.getMetadata();
+                    c.meta = metadataParser(fs.readFileSync(c.path, 'utf8')).metadata;
                     files.push(c);
                 }
                 else if(c.type === 'directory'){
