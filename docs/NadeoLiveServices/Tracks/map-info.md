@@ -5,7 +5,7 @@ route: /api/token/map/{mapUid}
 method: GET
 parameters:
     path:
-        mapUid:
+        -   name: mapUid
             type: string
             description: The UID of the map
             required: true

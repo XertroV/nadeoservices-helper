@@ -5,16 +5,16 @@ route: /api/token/map/favorite
 method: GET
 parameters:
     query:
-        offset:
+        -   name: offset
             type: integer
             description: The offset to start from
             required: false
             default: 0
-        limit:
+        -   name: limit
             type: integer
             description: The maximum number of tracks to return (min 1)
             required: false
-        sort:
+        -   name: sort
             type: string
             description: The sort order of the tracks
             required: false
@@ -22,7 +22,7 @@ parameters:
             availables:
                 - "date"
                 - "name"
-        order:
+        -   name: order
             type: string
             description: The order of the tracks
             required: false
@@ -30,13 +30,13 @@ parameters:
             availables:
                 - "asc"
                 - "desc"
-        mapType:
+        -   name: mapType
             type: string
             description: The map type filter
             required: false
             availables:
                 - "TrackMania\\TM_Race"
-        playable:
+        -   name: playable
             type: integer
             description: Whether the map is validated and playable
             required: false
