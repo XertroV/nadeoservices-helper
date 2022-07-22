@@ -29,7 +29,8 @@
                                     }
                                 ]
                             }
-                        }
+                        },
+                        "content": "\nCheck if a given track by its UID is available on Nadeo Services and gives its map infos.\n\nExample response for the track [MIDNIGHT METROPOLIS by htimh](https://trackmania.io/#/leaderboard/QleO8OiNAkIXrZs6r0YLSrLBjEi):\n\n```json\n{\n    \"uid\": \"QleO8OiNAkIXrZs6r0YLSrLBjEi\",\n    \"mapId\": \"606e4e16-f1d6-467c-9859-f1837a452166\",\n    \"name\": \"MIDNIGHT METROPOLIS\",\n    \"author\": \"144fce06-9b90-4af9-a5b0-9148bcc0566f\",\n    \"submitter\": \"144fce06-9b90-4af9-a5b0-9148bcc0566f\",\n    \"authorTime\": 55910,\n    \"goldTime\": 60000,\n    \"silverTime\": 68000,\n    \"bronzeTime\": 84000,\n    \"nbLaps\": 0,\n    \"valid\": false,\n    \"downloadUrl\": \"https://prod.trackmania.core.nadeo.online/storageObjects/9c20aff3-2046-4d7c-aa9b-52617d8d99e2\",\n    \"thumbnailUrl\": \"https://prod.trackmania.core.nadeo.online/storageObjects/4889bf39-a4f3-40b2-a582-9fa926e41930.jpg\",\n    \"uploadTimestamp\": 1631578171,\n    \"updateTimestamp\": 1658421115,\n    \"fileSize\": null,\n    \"public\": false,\n    \"favorite\": false,\n    \"playable\": true,\n    \"mapStyle\": \"TrackMania\\\\TM_Race\",\n    \"mapType\": \"TrackMania\\\\TM_Race\",\n    \"collectionName\": \"Stadium\"\n}\n```\n\nExample response if any track does not exists:\n\n```json\n[\n    \"map:error-notFound\"\n]\n```\n\nNotes: be careful to check the response type; a valid track will return a object, **but a invalid track will return an array with a string in it.**"
                     }
                 ],
                 "subCategories": [
@@ -55,7 +56,8 @@
                                             }
                                         ]
                                     }
-                                }
+                                },
+                                "content": "\nAdds a track by its UID to your favorite tracks on Nadeo Services.\n\nExample response:\n\n```\nMap favorite created\n```\n\nExample response if a map is unknown:\n\n```json\n[\n    \"map:error-notFound\"\n]\n```"
                             },
                             {
                                 "name": "get-favorites",
@@ -123,7 +125,8 @@
                                             }
                                         ]
                                     }
-                                }
+                                },
+                                "content": "\nRetrives your favorite tracks on Nadeo Services and get its map infos.\n\nExample response:\n\n```json\n{\n    \"mapList\": [\n        {\n            \"uid\": \"QleO8OiNAkIXrZs6r0YLSrLBjEi\",\n            \"mapId\": \"606e4e16-f1d6-467c-9859-f1837a452166\",\n            \"name\": \"MIDNIGHT METROPOLIS\",\n            \"author\": \"144fce06-9b90-4af9-a5b0-9148bcc0566f\",\n            \"submitter\": \"144fce06-9b90-4af9-a5b0-9148bcc0566f\",\n            \"authorTime\": 55910,\n            \"goldTime\": 60000,\n            \"silverTime\": 68000,\n            \"bronzeTime\": 84000,\n            \"nbLaps\": 0,\n            \"valid\": false,\n            \"downloadUrl\": \"https://prod.trackmania.core.nadeo.online/storageObjects/9c20aff3-2046-4d7c-aa9b-52617d8d99e2\",\n            \"thumbnailUrl\": \"https://prod.trackmania.core.nadeo.online/storageObjects/4889bf39-a4f3-40b2-a582-9fa926e41930.jpg\",\n            \"uploadTimestamp\": 1631578171,\n            \"updateTimestamp\": 1658421115,\n            \"fileSize\": null,\n            \"public\": false,\n            \"favorite\": false,\n            \"playable\": true,\n            \"mapStyle\": \"TrackMania\\\\TM_Race\",\n            \"mapType\": \"TrackMania\\\\TM_Race\",\n            \"collectionName\": \"Stadium\"\n        }\n    ],\n    \"itemCount\": 1\n}\n```"
                             },
                             {
                                 "name": "remove-favorite",
@@ -144,7 +147,8 @@
                                             }
                                         ]
                                     }
-                                }
+                                },
+                                "content": "\nRemove a track by its UID from your favorite tracks on Nadeo Services.\n\nExample response:\n\n```\nMap favorite deleted\n```\n\nExample response if a map is unknown:\n\n```json\n[\n    \"map:error-notFound\"\n]\n```\n\nExample response if a map is not on your favorite tracks:\n\n```json\n[\n    \"mapFavorite:error-notFound\"\n]\n```"
                             }
                         ],
                         "subCategories": []
