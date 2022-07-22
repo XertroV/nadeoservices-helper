@@ -22,7 +22,9 @@ let allFilesCategorized = {},
             let files = [], dirs = [];
             child.children.forEach(c=>{
                 if(c.type === 'file'){
-                    c.meta = metadataParser(fs.readFileSync(c.path, 'utf8')).metadata;
+                    const parsed = metadataParser(fs.readFileSync(c.path, 'utf8'));
+                    c.meta = parsed.metadata;
+                    c.content = parsed.content;
                     files.push(c);
                 }
                 else if(c.type === 'directory'){
@@ -36,6 +38,7 @@ let allFilesCategorized = {},
                         name: f.name.substring(0, f.name.indexOf('.')),
                         path: f.path.substring(docPath.length).replace(/\\/g, '/'),
                         meta: f.meta,
+                        content: f.content
                     }
                 }),
                 subCategories: dirChild(dirs),
