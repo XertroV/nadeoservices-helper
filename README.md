@@ -21,7 +21,7 @@ Note that you can't actually request the last audience with the NadeoServices de
 
 # What contains this repository?
 
-This repository contains a [documentation](/docs/) for each common routes of the NadeoServices API, plus a [JSON API](/api/) to access the documentation for other applications [such as the Openplanet plugin](/plugin/) and a [website](/website/) that brings this documentation.
+This repository contains a [documentation](/docs/) for each common routes of the NadeoServices API, plus a [JSON API](/api/) to access the documentation for other applications [such as the Openplanet plugin](/plugin/).
 
 # Using NadeoServices
 
@@ -34,3 +34,10 @@ Follow [this documentation](https://openplanet.dev/docs/reference/nadeoservices)
 ## Outside Openplanet
 
 Outside Openplanet (trackmania.io for example), [this Gist](https://gist.github.com/codecat/4dfd3719e1f8d9e5ef439d639abe0de4) contains information about authenticating with Nadeo's API externally.
+
+# Contributions
+<div align="center">
+
+![Alt](https://repobeats.axiom.co/api/embed/ed1dd0d62eaccc5e33f471c15be04e78b62390f4.svg "Repobeats analytics image")
+
+</div>
