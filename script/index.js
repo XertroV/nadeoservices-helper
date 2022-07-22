@@ -35,7 +35,7 @@ let allFilesCategorized = {},
                 name: child.name,
                 routes: files.map(f=>{
                     return {
-                        name: f.name.substring(0, f.name.indexOf('.')),
+                        name: f.name.substring(0, f.name.match(/\.md$/).index),
                         path: f.path.substring(docPath.length).replace(/\\/g, '/'),
                         meta: f.meta,
                         content: f.content
