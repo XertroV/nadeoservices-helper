@@ -7,8 +7,8 @@ on:
     paths:
       - "docs/**.md"
       - "script/**.js"
-    branches-ignore:
-      - 'gh-pages'
+    branches:
+      - 'main'
   workflow_dispatch:
 
 permissions: write-all
