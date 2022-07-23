@@ -1,0 +1,8 @@
+documentation:
+- docs/**/*.md
+
+"API JSON files":
+- api/**/*.json
+
+openplanet:
+- plugin/**/*.as
