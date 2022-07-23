@@ -10,6 +10,8 @@ Each route from the Nadeo API is documented by each files, in the [docs folder](
 
 Each file is separated in categories with folders, for example if I have a route for getting my favorite tracks with the audience `NadeoLiveServices`, then it shoud be on `docs/NadeoLiveServices/Tracks/Favorites/get-favorites.md`
 
+The file name must be written in kebab-case only.
+
 It must be in a Markdown (.md) file format and must contain this following data:
 
 ## 1. A metadata section
