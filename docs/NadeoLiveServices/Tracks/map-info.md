@@ -1,5 +1,6 @@
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Get a map info on Nadeo Services
 route: /api/token/map/{mapUid}
 method: GET

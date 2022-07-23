@@ -1,5 +1,6 @@
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Remove a track by its UID from your favorite tracks on Nadeo Services
 route: /api/token/map/favorite/{mapUid}/remove
 method: POST

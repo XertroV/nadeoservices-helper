@@ -1,5 +1,6 @@
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Gets a player's trophy count along with rankings in World, Continent, Country and Region.
 route: /api/token/leaderboard/trophy/player/
 method: POST

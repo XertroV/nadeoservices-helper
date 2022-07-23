@@ -14,11 +14,12 @@ It must be in a Markdown (.md) file format and must contain this following data:
 
 ## 1. A metadata section
 
-The metadata section must contains a short `description`, the `audience`, the `route`, the `method` and the `parameters`. This should be in YAML format.
+The metadata section must contains a short `description`, the `audience`, the base `url`, the `route`, the `method` and the `parameters`. This should be in YAML format.
 
 ```yaml
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Get your favorite tracks on Nadeo Services
 route: /api/token/map/favorite
 method: GET

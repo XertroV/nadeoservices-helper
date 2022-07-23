@@ -1,5 +1,6 @@
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Get the leaderboard for a season
 route: /api/token/leaderboard/group/{seasonUid}/top
 method: GET

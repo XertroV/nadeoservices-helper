@@ -1,5 +1,6 @@
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Get map records for a season
 route: /api/token/leaderboard/group/{seasonUid}/map/{mapUid}/top
 method: GET

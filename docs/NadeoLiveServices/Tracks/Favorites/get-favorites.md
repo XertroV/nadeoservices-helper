@@ -1,5 +1,6 @@
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Get your favorite tracks on Nadeo Services
 route: /api/token/map/favorite
 method: GET

@@ -1,5 +1,6 @@
 ---
 audience: NadeoLiveServices
+url: https://live-services.trackmania.nadeo.live
 description: Get Tracks of the Day by month
 route: /api/token/campaign/month
 method: GET
