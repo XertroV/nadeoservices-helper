@@ -1,14 +1,15 @@
 ---
 audience: NadeoLiveServices
-description: Get map records for a season
-route: /api/token/leaderboard/group/{seasonUid}/map/{mapUid}/top
+url: https://live-services.trackmania.nadeo.live
+route: /api/token/leaderboard/group/{groupUid}/map/{mapUid}/top
+description: Get map records for a group/season
 method: GET
 parameters:
     path:
-        -   name: seasonUid
+        -   name: groupUid
             type: string
             description: >
-                The UID of the "season". Example: the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md).
+                The UID of the group (aka. `seasonUid`). Example: the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md).
             required: true
         -   name: mapUid
             type: string
@@ -41,7 +42,7 @@ parameters:
 
 Get the top records for a given map in a given season.
 
-Note that if onlyWorld=false then `offset` and `length` have no effect.
+Note that if `onlyWorld=false` then `offset` and `length` have no effect.
 
 `seasonUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)
 

@@ -2,11 +2,11 @@
 audience: NadeoLiveServices
 url: https://live-services.trackmania.nadeo.live
 description: Get the leaderboard for a season
-route: /api/token/leaderboard/group/{seasonUid}/top
+route: /api/token/leaderboard/group/{groupUid}/top
 method: GET
 parameters:
     path:
-        -   name: seasonUid
+        -   name: groupUid
             type: string
             description: >
                 The UID of the "season". Example: the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md).
@@ -36,7 +36,7 @@ Get the leaderboard for a given season.
 
 Note that if onlyWorld=false then `offset` and `length` have no effect.
 
-`seasonUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)
+`groupUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)
 
 -----
 

@@ -2,14 +2,14 @@
 audience: NadeoLiveServices
 url: https://live-services.trackmania.nadeo.live
 description: Get map records for a season
-route: /api/token/leaderboard/group/{seasonUid}/map/{mapUid}/top
+route: /api/token/leaderboard/group/{groupUid}/map/{mapUid}/top
 method: GET
 parameters:
     path:
-        -   name: seasonUid
+        -   name: groupUid
             type: string
             description: >
-                The UID of the "season". Example: the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md).
+                The UID of the group (aka. season). Example: the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md).
             required: true
         -   name: mapUid
             type: string
@@ -36,17 +36,18 @@ parameters:
             maximum: 100
         -   name: score
             type: integer
+            required: false
             description: >
                 The player's personal best time in miliseconds. Possibly only used with `seasonUid=Personal_Best`. Unknown purpose.
 ---
 
-Get the top records for a given map in a given season.
+Get the top records for a given map in a given group/season.
 
-Note that if onlyWorld=false then `offset` and `length` have no effect.
+Note that if `onlyWorld=false` then `offset` and `length` have no effect.
 
-`seasonUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)
+`groupUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)
 
-Note: There is a special seasonUid `Personal_Best` that includes all records set ever.
+Note: There is a special groupUid `Personal_Best` that includes all records set ever.
 
 -----
 
