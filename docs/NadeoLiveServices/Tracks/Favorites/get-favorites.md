@@ -12,14 +12,16 @@ parameters:
             default: 0
         -   name: limit
             type: integer
-            description: The maximum number of tracks to return (min 1)
+            description: The maximum number of tracks to return
             required: false
+            minimum: 1
+            maximum: 100
         -   name: sort
             type: string
             description: The sort order of the tracks
             required: false
             default: "date"
-            availables:
+            enum:
                 - "date"
                 - "name"
         -   name: order
@@ -27,20 +29,20 @@ parameters:
             description: The order of the tracks
             required: false
             default: "desc"
-            availables:
+            enum:
                 - "asc"
                 - "desc"
         -   name: mapType
             type: string
             description: The map type filter
             required: false
-            availables:
+            enum:
                 - "TrackMania\\TM_Race"
         -   name: playable
             type: integer
             description: Whether the map is validated and playable
             required: false
-            availables:
+            enum:
                 - 0
                 - 1
 ---
