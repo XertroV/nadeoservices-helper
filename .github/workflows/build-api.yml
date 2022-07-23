@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm i
       - name: Run script
-        run: node script/index.js
+        run: node script/build.js
       - name: Check if changes were made
         id: check-changes
         run: |
