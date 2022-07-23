@@ -44,9 +44,8 @@ Outside Openplanet (trackmania.io for example), [this Gist](https://gist.github.
 ![Alt](https://repobeats.axiom.co/api/embed/ed1dd0d62eaccc5e33f471c15be04e78b62390f4.svg "Repobeats analytics image")
 
 </div>
-## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
