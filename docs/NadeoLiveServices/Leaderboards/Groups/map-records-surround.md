@@ -41,6 +41,7 @@ parameters:
             type: integer
             description: >
                 The player's personal best time in miliseconds. Possibly only used with `groupUid=Personal_Best`. Unknown purpose.
+            required: false
 ---
 
 Get the player's record and the adjacent records for a given map in a given season over all zones.
