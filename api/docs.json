@@ -245,8 +245,10 @@
                                             {
                                                 "name": "limit",
                                                 "type": "integer",
-                                                "description": "The maximum number of tracks to return (min 1)",
-                                                "required": false
+                                                "description": "The maximum number of tracks to return",
+                                                "required": false,
+                                                "minimum": 1,
+                                                "maximum": 100
                                             },
                                             {
                                                 "name": "sort",
@@ -254,7 +256,7 @@
                                                 "description": "The sort order of the tracks",
                                                 "required": false,
                                                 "default": "date",
-                                                "availables": [
+                                                "enum": [
                                                     "date",
                                                     "name"
                                                 ]
@@ -265,7 +267,7 @@
                                                 "description": "The order of the tracks",
                                                 "required": false,
                                                 "default": "desc",
-                                                "availables": [
+                                                "enum": [
                                                     "asc",
                                                     "desc"
                                                 ]
@@ -275,7 +277,7 @@
                                                 "type": "string",
                                                 "description": "The map type filter",
                                                 "required": false,
-                                                "availables": [
+                                                "enum": [
                                                     "TrackMania\\TM_Race"
                                                 ]
                                             },
@@ -284,7 +286,7 @@
                                                 "type": "integer",
                                                 "description": "Whether the map is validated and playable",
                                                 "required": false,
-                                                "availables": [
+                                                "enum": [
                                                     0,
                                                     1
                                                 ]
