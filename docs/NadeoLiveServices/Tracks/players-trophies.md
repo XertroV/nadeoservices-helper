@@ -1,7 +1,7 @@
 ---
 audience: NadeoLiveServices
 description: Gets a player's trophy count along with rankings in World, Continent, Country and Region.
-route: api/token/leaderboard/trophy/player/
+route: /api/token/leaderboard/trophy/player/
 method: POST
 body: NEED HELP, EXAMPLE.
 ---
