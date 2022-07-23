@@ -4,6 +4,8 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 A documentation, an API, a website, and a Openplanet plugin to get started using [NadeoServices](https://openplanet.dev/docs/reference/nadeoservices).
 
+**Note: Openplanet team is working on a separated documentation directly included on their website. This repository can be archived if their documentation is open-sourced soon**
+
 # Getting started
 
 The NadeoServices API provides an easy interface into Trackmania's online services authentication.
@@ -46,6 +48,8 @@ Outside Openplanet (trackmania.io for example), [this Gist](https://gist.github.
 </div>
 
 ## Contributors ✨
+
+A route is missing, not updated? Feel free to [contribute!](/CONTRIBUTING.md)
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
