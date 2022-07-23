@@ -47,7 +47,14 @@ let allFilesCategorized = {},
     }
 
     tree.children.forEach(child=>{
-        allFilesCategorized[child.name] = dirChild(child.children);
+        if (child.name == "NadeoClubServices") {
+            allFilesCategorized[child.name] = {};
+            child.children.forEach(c=>{
+                allFilesCategorized[child.name][c.name] = dirChild(c.children);
+            });
+        } else {
+            allFilesCategorized[child.name] = dirChild(child.children);
+        }
     });
 
     root.categories = allFilesCategorized;
