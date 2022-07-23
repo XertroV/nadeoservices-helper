@@ -6,6 +6,48 @@
         "Matchmaking": "https://matchmaking.trackmania.nadeo.club"
     },
     "categories": {
+        "NadeoClubServices": {
+            "Club": [],
+            "Competition": [
+                {
+                    "name": "CupOfTheDay",
+                    "routes": [
+                        {
+                            "name": "current",
+                            "path": "NadeoClubServices/Competition/CupOfTheDay/current.md",
+                            "meta": {
+                                "audience": "NadeoClubServices",
+                                "url": "https://competition.trackmania.nadeo.club",
+                                "route": "/api/cup-of-the-day/current",
+                                "description": "Get the status and details of the current or next Cup of the Day",
+                                "method": "GET"
+                            },
+                            "content": "\nGet the status and details of the current or next Cup of the Day.\n\nNote: this seems to be a duplicate of [/api/daily-cup/current](/docs/NadeoClubServices/Competition/DailyCup/current.md)\n\nExample response:\n\n```json\n{\n  \"id\": 1325,\n  \"edition\": 2,\n  \"competition\": {\n    \"id\": 3207,\n    \"liveId\": \"LID-COMP-4betamhaprlakto\",\n    \"creator\": \"afe7e1c1-7086-48f7-bde9-a7e320647510\",\n    \"name\": \"Cup of the Day 2022-07-23 #2\",\n    \"participantType\": \"PLAYER\",\n    \"description\": null,\n    \"registrationStart\": null,\n    \"registrationEnd\": null,\n    \"startDate\": 1658625390,\n    \"endDate\": 1658632590,\n    \"matchesGenerationDate\": 1658625365,\n    \"nbPlayers\": 0,\n    \"spotStructure\": \"{\\\"version\\\":1,\\\"rounds\\\":[{\\\"name\\\":\\\"\\\",\\\"matchGeneratorType\\\":\\\"daily_cup\\\",\\\"matchGeneratorData\\\":{\\\"match_size\\\":64}}]}\",\n    \"leaderboardId\": 7937,\n    \"manialink\": null,\n    \"rulesUrl\": null,\n    \"streamUrl\": null,\n    \"websiteUrl\": null,\n    \"logoUrl\": null,\n    \"verticalUrl\": null,\n    \"allowedZones\": [],\n    \"deletedOn\": null,\n    \"autoNormalizeSeeds\": true,\n    \"region\": \"ca-central\",\n    \"autoGetParticipantSkillLevel\": \"DISABLED\",\n    \"matchAutoMode\": \"ENABLED\"\n  },\n  \"challenge\": {\n    \"id\": 1583,\n    \"uid\": \"932e349a-0152-4741-828f-2d85dded78e5\",\n    \"name\": \"Cup of the Day 2022-07-23 #2 - Challenge\",\n    \"scoreDirection\": \"ASC\",\n    \"startDate\": 1658624460,\n    \"endDate\": 1658625360,\n    \"status\": \"INIT\",\n    \"resultsVisibility\": \"PUBLIC\",\n    \"creator\": \"afe7e1c1-7086-48f7-bde9-a7e320647510\",\n    \"admins\": [\n      \"0060a0c1-2e62-41e7-9db7-c86236af3ac4\",\n      \"54e4dda4-522d-496f-8a8b-fe0d0b5a2a8f\",\n      \"2116b392-d808-4264-923f-2bfcfa60a570\",\n      \"6ce163d5-f240-4741-870b-f2adad843865\",\n      \"5e7b0c82-263b-41d5-8fa4-98d36ad4d57c\",\n      \"a76653e1-998a-4c53-8a91-0a396e15bfb5\"\n    ],\n    \"nbServers\": 0,\n    \"autoScale\": true,\n    \"nbMaps\": 1,\n    \"leaderboardId\": 7935,\n    \"deletedOn\": null,\n    \"leaderboardType\": \"SUM\",\n    \"completeTimeout\": 5\n  },\n  \"startDate\": 1658624460,\n  \"endDate\": 1658632590,\n  \"deletedOn\": null\n}\n```\n"
+                        }
+                    ],
+                    "subCategories": []
+                },
+                {
+                    "name": "DailyCup",
+                    "routes": [
+                        {
+                            "name": "current",
+                            "path": "NadeoClubServices/Competition/DailyCup/current.md",
+                            "meta": {
+                                "audience": "NadeoClubServices",
+                                "url": "https://competition.trackmania.nadeo.club",
+                                "route": "/api/daily-cup/current",
+                                "description": "Get the status and details of the current or next Cup of the Day",
+                                "method": "GET"
+                            },
+                            "content": "\nGet the status and details of the current or next Cup of the Day.\n\nNote: this endpoint often returns `null` between off-peak COTD events.\n\nExample response (after COTD is finished; in this case approx 2:15 after COTD started):\n\n```json\n{\n  \"id\": 1324,\n  \"edition\": 1,\n  \"competition\": {\n    \"id\": 3206,\n    \"liveId\": \"LID-COMP-sp12wal2oqgwv5n\",\n    \"creator\": \"afe7e1c1-7086-48f7-bde9-a7e320647510\",\n    \"name\": \"Cup of the Day 2022-07-23 #1\",\n    \"participantType\": \"PLAYER\",\n    \"description\": null,\n    \"registrationStart\": null,\n    \"registrationEnd\": null,\n    \"startDate\": 1658596590,\n    \"endDate\": 1658603790,\n    \"matchesGenerationDate\": 1658596565,\n    \"nbPlayers\": 3370,\n    \"spotStructure\": \"{\\\"version\\\":1,\\\"rounds\\\":[{\\\"name\\\":\\\"\\\",\\\"matchGeneratorType\\\":\\\"daily_cup\\\",\\\"matchGeneratorData\\\":{\\\"match_size\\\":64}}]}\",\n    \"leaderboardId\": 7934,\n    \"manialink\": null,\n    \"rulesUrl\": null,\n    \"streamUrl\": null,\n    \"websiteUrl\": null,\n    \"logoUrl\": null,\n    \"verticalUrl\": null,\n    \"allowedZones\": [],\n    \"deletedOn\": null,\n    \"autoNormalizeSeeds\": true,\n    \"region\": \"eu-west\",\n    \"autoGetParticipantSkillLevel\": \"DISABLED\",\n    \"matchAutoMode\": \"ENABLED\"\n  },\n  \"challenge\": {\n    \"id\": 1582,\n    \"uid\": \"1f39e0cd-b016-49ab-8b15-b214ca70ec8d\",\n    \"name\": \"Cup of the Day 2022-07-23 #1 - Challenge\",\n    \"scoreDirection\": \"ASC\",\n    \"startDate\": 1658595660,\n    \"endDate\": 1658596560,\n    \"status\": \"HAS_SERVERS\",\n    \"resultsVisibility\": \"PUBLIC\",\n    \"creator\": \"afe7e1c1-7086-48f7-bde9-a7e320647510\",\n    \"admins\": [\n      \"0060a0c1-2e62-41e7-9db7-c86236af3ac4\",\n      \"54e4dda4-522d-496f-8a8b-fe0d0b5a2a8f\",\n      \"2116b392-d808-4264-923f-2bfcfa60a570\",\n      \"6ce163d5-f240-4741-870b-f2adad843865\",\n      \"5e7b0c82-263b-41d5-8fa4-98d36ad4d57c\",\n      \"a76653e1-998a-4c53-8a91-0a396e15bfb5\"\n    ],\n    \"nbServers\": 0,\n    \"autoScale\": true,\n    \"nbMaps\": 1,\n    \"leaderboardId\": 7932,\n    \"deletedOn\": null,\n    \"leaderboardType\": \"SUM\",\n    \"completeTimeout\": 5\n  },\n  \"startDate\": 1658595660,\n  \"endDate\": 1658603790,\n  \"deletedOn\": null\n}\n```\n\nexample response (before COTD starts; in this case approx 2:25 after prior COTD started):\n\n```json\n{\n  \"id\": 1325,\n  \"edition\": 2,\n  \"competition\": {\n    \"id\": 3207,\n    \"liveId\": \"LID-COMP-4betamhaprlakto\",\n    \"creator\": \"afe7e1c1-7086-48f7-bde9-a7e320647510\",\n    \"name\": \"Cup of the Day 2022-07-23 #2\",\n    \"participantType\": \"PLAYER\",\n    \"description\": null,\n    \"registrationStart\": null,\n    \"registrationEnd\": null,\n    \"startDate\": 1658625390,\n    \"endDate\": 1658632590,\n    \"matchesGenerationDate\": 1658625365,\n    \"nbPlayers\": 0,\n    \"spotStructure\": \"{\\\"version\\\":1,\\\"rounds\\\":[{\\\"name\\\":\\\"\\\",\\\"matchGeneratorType\\\":\\\"daily_cup\\\",\\\"matchGeneratorData\\\":{\\\"match_size\\\":64}}]}\",\n    \"leaderboardId\": 7937,\n    \"manialink\": null,\n    \"rulesUrl\": null,\n    \"streamUrl\": null,\n    \"websiteUrl\": null,\n    \"logoUrl\": null,\n    \"verticalUrl\": null,\n    \"allowedZones\": [],\n    \"deletedOn\": null,\n    \"autoNormalizeSeeds\": true,\n    \"region\": \"ca-central\",\n    \"autoGetParticipantSkillLevel\": \"DISABLED\",\n    \"matchAutoMode\": \"ENABLED\"\n  },\n  \"challenge\": {\n    \"id\": 1583,\n    \"uid\": \"932e349a-0152-4741-828f-2d85dded78e5\",\n    \"name\": \"Cup of the Day 2022-07-23 #2 - Challenge\",\n    \"scoreDirection\": \"ASC\",\n    \"startDate\": 1658624460,\n    \"endDate\": 1658625360,\n    \"status\": \"INIT\",\n    \"resultsVisibility\": \"PUBLIC\",\n    \"creator\": \"afe7e1c1-7086-48f7-bde9-a7e320647510\",\n    \"admins\": [\n      \"0060a0c1-2e62-41e7-9db7-c86236af3ac4\",\n      \"54e4dda4-522d-496f-8a8b-fe0d0b5a2a8f\",\n      \"2116b392-d808-4264-923f-2bfcfa60a570\",\n      \"6ce163d5-f240-4741-870b-f2adad843865\",\n      \"5e7b0c82-263b-41d5-8fa4-98d36ad4d57c\",\n      \"a76653e1-998a-4c53-8a91-0a396e15bfb5\"\n    ],\n    \"nbServers\": 0,\n    \"autoScale\": true,\n    \"nbMaps\": 1,\n    \"leaderboardId\": 7935,\n    \"deletedOn\": null,\n    \"leaderboardType\": \"SUM\",\n    \"completeTimeout\": 5\n  },\n  \"startDate\": 1658624460,\n  \"endDate\": 1658632590,\n  \"deletedOn\": null\n}\n```\n"
+                        }
+                    ],
+                    "subCategories": []
+                }
+            ],
+            "Matchmaking": []
+        },
         "NadeoLiveServices": [
             {
                 "name": "Campaigns",
