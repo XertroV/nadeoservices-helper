@@ -34,6 +34,10 @@ parameters:
             default: 5
             minimum: 0
             maximum: 100
+        -   name: score
+            type: integer
+            description: >
+                The player's personal best time in miliseconds. Possibly only used with `seasonUid=Personal_Best`. Unknown purpose.
 ---
 
 Get the top records for a given map in a given season.
@@ -41,6 +45,8 @@ Get the top records for a given map in a given season.
 Note that if onlyWorld=false then `offset` and `length` have no effect.
 
 `seasonUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)
+
+Note: There is a special seasonUid `Personal_Best` that includes all records set ever.
 
 -----
 
@@ -75,6 +81,39 @@ Example response (`/api/token/leaderboard/group/ed0f8dd1-247d-4563-95e2-f8e824dc
           "zoneName": "Madeira",
           "position": 95,
           "score": 46102
+        }
+      ]
+    }
+  ]
+}
+```
+
+-----
+
+Example response (`/api/token/leaderboard/group/Personal_Best/map/tZROO7ZGFV5oSel3hyKrvZ60Xth/top?onlyWorld=true&length=2`):
+
+```json
+{
+  "groupUid": "Personal_Best",
+  "mapUid": "tZROO7ZGFV5oSel3hyKrvZ60Xth",
+  "tops": [
+    {
+      "zoneId": "301e1b69-7e13-11e8-8060-e284abfd2bc4",
+      "zoneName": "World",
+      "top": [
+        {
+          "accountId": "d46fb45d-d422-47c9-9785-67270a311e25",
+          "zoneId": "301f555b-7e13-11e8-8060-e284abfd2bc4",
+          "zoneName": "Středočeský kraj",
+          "position": 1,
+          "score": 44821
+        },
+        {
+          "accountId": "d320a237-1b0a-4069-af83-f2c09fbf042e",
+          "zoneId": "301e2e52-7e13-11e8-8060-e284abfd2bc4",
+          "zoneName": "Australian Capital Territory",
+          "position": 2,
+          "score": 44971
         }
       ]
     }
