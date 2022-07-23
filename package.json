@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "node script/build.js",
-    "dev": "node script/build.js --dry-run"
+    "dev": "node script/build.js --dry-run",
+    "test": "node script/pr-test.js"
   },
   "repository": {
     "type": "git",
