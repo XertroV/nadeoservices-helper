@@ -43,15 +43,6 @@ Note that if onlyWorld=false then `offset` and `length` have no effect.
 
 -----
 
-Example errors:
-
-when `length < 0` and/or `offset < 0`:
-```json
-["length:error-greaterOrEqualThan","offset:error-greaterOrEqualThan"]
-```
-
------
-
 Example response (`/api/token/leaderboard/group/ed0f8dd1-247d-4563-95e2-f8e824dc4c2f/map/tZROO7ZGFV5oSel3hyKrvZ60Xth/top?onlyWorld=true&length=3&offset=92`):
 
 ```json
@@ -265,4 +256,13 @@ Example response (`/api/token/leaderboard/group/ed0f8dd1-247d-4563-95e2-f8e824dc
     }
   ]
 }
+```
+
+-----
+
+Example errors:
+
+when `length < 0` and/or `offset < 0`:
+```json
+["length:error-greaterOrEqualThan","offset:error-greaterOrEqualThan"]
 ```
