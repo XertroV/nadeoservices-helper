@@ -15,6 +15,7 @@
                         "path": "NadeoLiveServices/Campaigns/track-of-the-day.md",
                         "meta": {
                             "audience": "NadeoLiveServices",
+                            "url": "https://live-services.trackmania.nadeo.live",
                             "description": "Get Tracks of the Day by month",
                             "route": "/api/token/campaign/month",
                             "method": "GET",
@@ -51,6 +52,7 @@
                         "path": "NadeoLiveServices/Leaderboards/season-leaderboard-top.md",
                         "meta": {
                             "audience": "NadeoLiveServices",
+                            "url": "https://live-services.trackmania.nadeo.live",
                             "description": "Get the leaderboard for a season",
                             "route": "/api/token/leaderboard/group/{seasonUid}/top",
                             "method": "GET",
@@ -103,6 +105,7 @@
                                 "path": "NadeoLiveServices/Leaderboards/Groups/map-records-top.md",
                                 "meta": {
                                     "audience": "NadeoLiveServices",
+                                    "url": "https://live-services.trackmania.nadeo.live",
                                     "description": "Get map records for a season",
                                     "route": "/api/token/leaderboard/group/{seasonUid}/map/{mapUid}/top",
                                     "method": "GET",
@@ -164,6 +167,7 @@
                         "path": "NadeoLiveServices/Players/players-trophies.md",
                         "meta": {
                             "audience": "NadeoLiveServices",
+                            "url": "https://live-services.trackmania.nadeo.live",
                             "description": "Gets a player's trophy count along with rankings in World, Continent, Country and Region.",
                             "route": "/api/token/leaderboard/trophy/player/",
                             "method": "POST"
@@ -181,6 +185,7 @@
                         "path": "NadeoLiveServices/Tracks/map-info.md",
                         "meta": {
                             "audience": "NadeoLiveServices",
+                            "url": "https://live-services.trackmania.nadeo.live",
                             "description": "Get a map info on Nadeo Services",
                             "route": "/api/token/map/{mapUid}",
                             "method": "GET",
@@ -208,6 +213,7 @@
                                 "path": "NadeoLiveServices/Tracks/Favorites/add-favorite.md",
                                 "meta": {
                                     "audience": "NadeoLiveServices",
+                                    "url": "https://live-services.trackmania.nadeo.live",
                                     "description": "Add a track by its UID to your favorite tracks on Nadeo Services",
                                     "route": "/api/token/map/favorite/{mapUid}/add",
                                     "method": "POST",
@@ -230,6 +236,7 @@
                                 "path": "NadeoLiveServices/Tracks/Favorites/get-favorites.md",
                                 "meta": {
                                     "audience": "NadeoLiveServices",
+                                    "url": "https://live-services.trackmania.nadeo.live",
                                     "description": "Get your favorite tracks on Nadeo Services",
                                     "route": "/api/token/map/favorite",
                                     "method": "GET",
@@ -301,6 +308,7 @@
                                 "path": "NadeoLiveServices/Tracks/Favorites/remove-favorite.md",
                                 "meta": {
                                     "audience": "NadeoLiveServices",
+                                    "url": "https://live-services.trackmania.nadeo.live",
                                     "description": "Remove a track by its UID from your favorite tracks on Nadeo Services",
                                     "route": "/api/token/map/favorite/{mapUid}/remove",
                                     "method": "POST",
