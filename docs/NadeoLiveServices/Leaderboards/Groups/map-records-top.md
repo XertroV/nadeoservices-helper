@@ -38,7 +38,7 @@ parameters:
             type: integer
             required: false
             description: >
-                The player's personal best time in miliseconds. Possibly only used with `seasonUid=Personal_Best`. Unknown purpose.
+                The player's personal best time in miliseconds. Possibly only used with `groupUid=Personal_Best`. Unknown purpose.
 ---
 
 Get the top records for a given map in a given group/season.
