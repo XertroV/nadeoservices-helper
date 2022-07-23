@@ -3,14 +3,27 @@ audience: NadeoLiveServices
 description: Gets a player's trophy count along with rankings in World, Continent, Country and Region.
 route: /api/token/leaderboard/trophy/player/
 method: POST
-body: NEED HELP, EXAMPLE.
 ---
 
 Check if the given player by their UID is on NadeoServices and give their total trophy count alongside their rankings in the World, Continent, Country and Region.
 
 This endpoint also allows for multiple player UIDs in the body.
 
-Example response for the player [Scrapie98](https://trackmania.io/#/player/scrapie)
+Example for the player [Scrapie98](https://trackmania.io/#/player/scrapie)
+
+Body:
+
+```json
+{
+    "listPlayer": [
+        {
+            "accountId": "da4642f9-6acf-43fe-88b6-b120ff1308ba",
+        }
+    ]
+}
+```
+
+Response:
 
 ```json
 {
@@ -59,20 +72,29 @@ Example response for the player [Scrapie98](https://trackmania.io/#/player/scrap
 }
 ```
 
-Body of above request
+
+Example for 3 players, [Scrapie98](https://trackmania.io/#/player/scrapie), [GranaDy.](https://trackmania.io/#/player/granady) and [NottCurious](https://trackmania.io/#/player/nottcurious) passed at once.
+
+
+Body:
 
 ```json
 {
     "listPlayer": [
         {
             "accountId": "da4642f9-6acf-43fe-88b6-b120ff1308ba",
+        },
+        {
+            "accountId": "05477e79-25fd-48c2-84c7-e1621aa46517",
+        },
+        {
+            "accountId": "b73fe3d7-a92a-4a6d-ab9d-49005caec499",
         }
     ]
 }
 ```
 
-
-Example response for 3 players, [Scrapie98](https://trackmania.io/#/player/scrapie), [GranaDy.](https://trackmania.io/#/player/granady) and [NottCurious](https://trackmania.io/#/player/nottcurious) passed at once.
+Response:
 
 ```json
 {
@@ -196,24 +218,6 @@ Example response for 3 players, [Scrapie98](https://trackmania.io/#/player/scrap
         }
     ],
     "length": 0
-}
-```
-
-Body of above request
-
-```json
-{
-    "listPlayer": [
-        {
-            "accountId": "da4642f9-6acf-43fe-88b6-b120ff1308ba",
-        },
-        {
-            "accountId": "05477e79-25fd-48c2-84c7-e1621aa46517",
-        },
-        {
-            "accountId": "b73fe3d7-a92a-4a6d-ab9d-49005caec499",
-        }
-    ]
 }
 ```
 
