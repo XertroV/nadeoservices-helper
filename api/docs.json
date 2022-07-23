@@ -44,6 +44,119 @@
                 "subCategories": []
             },
             {
+                "name": "Leaderboards",
+                "routes": [
+                    {
+                        "name": "season-leaderboard-top",
+                        "path": "NadeoLiveServices/Leaderboards/season-leaderboard-top.md",
+                        "meta": {
+                            "audience": "NadeoLiveServices",
+                            "description": "Get the leaderboard for a season",
+                            "route": "/api/token/leaderboard/group/{seasonUid}/top",
+                            "method": "GET",
+                            "parameters": {
+                                "path": [
+                                    {
+                                        "name": "seasonUid",
+                                        "type": "string",
+                                        "description": "The UID of the \"season\". Example: the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md).\n",
+                                        "required": true
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "onlyWorld",
+                                        "type": "boolean",
+                                        "description": "Whether to return only results for `zoneName == 'World'`",
+                                        "required": false,
+                                        "default": false
+                                    },
+                                    {
+                                        "name": "offset",
+                                        "type": "integer",
+                                        "description": "(Requires `onlyWorld=true`) The offset to start from",
+                                        "required": false,
+                                        "default": 0,
+                                        "minimum": 0
+                                    },
+                                    {
+                                        "name": "length",
+                                        "type": "integer",
+                                        "description": "(Requires `onlyWorld=true`) The number of records to return",
+                                        "required": false,
+                                        "default": 5,
+                                        "minimum": 0,
+                                        "maximum": 100
+                                    }
+                                ]
+                            }
+                        },
+                        "content": "\nGet the leaderboard for a given season.\n\nNote that if onlyWorld=false then `offset` and `length` have no effect.\n\n`seasonUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)\n\n-----\n\nExample response (`/api/token/leaderboard/group/ed0f8dd1-247d-4563-95e2-f8e824dc4c2f/top?onlyWorld=true&length=3&offset=1`):\n\n```json\n{\n  \"groupUid\": \"ed0f8dd1-247d-4563-95e2-f8e824dc4c2f\",\n  \"tops\": [\n    {\n      \"zoneId\": \"301e1b69-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"World\",\n      \"top\": [\n        {\n          \"accountId\": \"d320a237-1b0a-4069-af83-f2c09fbf042e\",\n          \"zoneId\": \"301e2e52-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Australian Capital Territory\",\n          \"position\": 2,\n          \"sp\": \"20000\"\n        },\n        {\n          \"accountId\": \"65341b56-1625-4df2-8fb4-ad7145c03c34\",\n          \"zoneId\": \"301fea75-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Réunion\",\n          \"position\": 3,\n          \"sp\": \"13333\"\n        },\n        {\n          \"accountId\": \"95f2b15a-cf1e-4e41-b826-21889fdb26d8\",\n          \"zoneId\": \"302255bf-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Primorska\",\n          \"position\": 4,\n          \"sp\": \"10000\"\n        }\n      ]\n    }\n  ]\n}\n```\n\n-----\n\nExample response (`/api/token/leaderboard/group/ed0f8dd1-247d-4563-95e2-f8e824dc4c2f/top?onlyWorld=false&length=3&offset=1`):\n\n```json\n{\n  \"groupUid\": \"ed0f8dd1-247d-4563-95e2-f8e824dc4c2f\",\n  \"tops\": [\n    {\n      \"zoneId\": \"301e1b69-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"World\",\n      \"top\": [\n        {\n          \"accountId\": \"d46fb45d-d422-47c9-9785-67270a311e25\",\n          \"zoneId\": \"301f555b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Středočeský kraj\",\n          \"position\": 1,\n          \"sp\": \"40000\"\n        },\n        {\n          \"accountId\": \"d320a237-1b0a-4069-af83-f2c09fbf042e\",\n          \"zoneId\": \"301e2e52-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Australian Capital Territory\",\n          \"position\": 2,\n          \"sp\": \"20000\"\n        },\n        {\n          \"accountId\": \"65341b56-1625-4df2-8fb4-ad7145c03c34\",\n          \"zoneId\": \"301fea75-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Réunion\",\n          \"position\": 3,\n          \"sp\": \"13333\"\n        },\n        {\n          \"accountId\": \"95f2b15a-cf1e-4e41-b826-21889fdb26d8\",\n          \"zoneId\": \"302255bf-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Primorska\",\n          \"position\": 4,\n          \"sp\": \"10000\"\n        },\n        {\n          \"accountId\": \"bd45204c-80f1-4809-b983-38b3f0ffc1ef\",\n          \"zoneId\": \"3020a27d-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Norway\",\n          \"position\": 5,\n          \"sp\": \"8000\"\n        }\n      ]\n    },\n    {\n      \"zoneId\": \"301e237a-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"Oceania\",\n      \"top\": [\n        {\n          \"accountId\": \"d320a237-1b0a-4069-af83-f2c09fbf042e\",\n          \"zoneId\": \"301e2e52-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Australian Capital Territory\",\n          \"position\": 1,\n          \"sp\": \"40000\"\n        },\n        {\n          \"accountId\": \"5a1b3368-d3cb-4a13-93e8-ff9800d7df2f\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 2,\n          \"sp\": \"20000\"\n        },\n        {\n          \"accountId\": \"5936d8dc-3a5b-4daa-a95f-15d75e98b210\",\n          \"zoneId\": \"30209ed5-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New Zealand\",\n          \"position\": 3,\n          \"sp\": \"13333\"\n        },\n        {\n          \"accountId\": \"f6cb57dd-7a38-4a09-9e5c-cfc104e42c91\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 4,\n          \"sp\": \"10000\"\n        },\n        {\n          \"accountId\": \"a9d156e5-f2f7-4f3d-a2f2-5f5102751f2a\",\n          \"zoneId\": \"30209ed5-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New Zealand\",\n          \"position\": 5,\n          \"sp\": \"8000\"\n        }\n      ]\n    },\n    {\n      \"zoneId\": \"301e2dc2-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"Australia\",\n      \"top\": [\n        {\n          \"accountId\": \"d320a237-1b0a-4069-af83-f2c09fbf042e\",\n          \"zoneId\": \"301e2e52-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Australian Capital Territory\",\n          \"position\": 1,\n          \"sp\": \"40000\"\n        },\n        {\n          \"accountId\": \"5a1b3368-d3cb-4a13-93e8-ff9800d7df2f\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 2,\n          \"sp\": \"20000\"\n        },\n        {\n          \"accountId\": \"f6cb57dd-7a38-4a09-9e5c-cfc104e42c91\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 3,\n          \"sp\": \"13333\"\n        },\n        {\n          \"accountId\": \"3c1505cd-8a53-4e4e-817c-d808c277e64c\",\n          \"zoneId\": \"301e34ec-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Queensland\",\n          \"position\": 4,\n          \"sp\": \"10000\"\n        },\n        {\n          \"accountId\": \"51812800-8116-430e-a286-c06db919e80e\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 5,\n          \"sp\": \"8000\"\n        }\n      ]\n    },\n    {\n      \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"New South Wales\",\n      \"top\": [\n        {\n          \"accountId\": \"5a1b3368-d3cb-4a13-93e8-ff9800d7df2f\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 1,\n          \"sp\": \"40000\"\n        },\n        {\n          \"accountId\": \"f6cb57dd-7a38-4a09-9e5c-cfc104e42c91\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 2,\n          \"sp\": \"20000\"\n        },\n        {\n          \"accountId\": \"51812800-8116-430e-a286-c06db919e80e\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 3,\n          \"sp\": \"13333\"\n        },\n        {\n          \"accountId\": \"ea0213fe-b2ef-43a4-867a-6aec8d59f034\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 4,\n          \"sp\": \"10000\"\n        },\n        {\n          \"accountId\": \"3e1ecaff-d08e-4057-b224-829507885bd6\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 5,\n          \"sp\": \"8000\"\n        }\n      ]\n    }\n  ]\n}\n```\n\n-----\n\nExample errors:\n\nwhen `length < 0` and/or `offset < 0`:\n```json\n[\"length:error-greaterOrEqualThan\",\"offset:error-greaterOrEqualThan\"]\n```\n"
+                    }
+                ],
+                "subCategories": [
+                    {
+                        "name": "Groups",
+                        "routes": [
+                            {
+                                "name": "map-records-top",
+                                "path": "NadeoLiveServices/Leaderboards/Groups/map-records-top.md",
+                                "meta": {
+                                    "audience": "NadeoLiveServices",
+                                    "description": "Get map records for a season",
+                                    "route": "/api/token/leaderboard/group/{seasonUid}/map/{mapUid}/top",
+                                    "method": "GET",
+                                    "parameters": {
+                                        "path": [
+                                            {
+                                                "name": "seasonUid",
+                                                "type": "string",
+                                                "description": "The UID of the \"season\". Example: the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md).\n",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "mapUid",
+                                                "type": "string",
+                                                "description": "The UID of the map",
+                                                "required": true
+                                            }
+                                        ],
+                                        "query": [
+                                            {
+                                                "name": "onlyWorld",
+                                                "type": "boolean",
+                                                "description": "Whether to return only results for `zoneName == 'World'`",
+                                                "required": false,
+                                                "default": false
+                                            },
+                                            {
+                                                "name": "offset",
+                                                "type": "integer",
+                                                "description": "(Requires `onlyWorld=true`) The offset to start from",
+                                                "required": false,
+                                                "default": 0,
+                                                "minimum": 0
+                                            },
+                                            {
+                                                "name": "length",
+                                                "type": "integer",
+                                                "description": "(Requires `onlyWorld=true`) The number of records to return",
+                                                "required": false,
+                                                "default": 5,
+                                                "minimum": 0,
+                                                "maximum": 100
+                                            }
+                                        ]
+                                    }
+                                },
+                                "content": "\nGet the top records for a given map in a given season.\n\nNote that if onlyWorld=false then `offset` and `length` have no effect.\n\n`seasonUid` Example: see the `.seasonUid` field in [Track of the Day entries](/docs/NadeoLiveServices/Campaigns/track-of-the-day.md)\n\n-----\n\nExample response (`/api/token/leaderboard/group/ed0f8dd1-247d-4563-95e2-f8e824dc4c2f/map/tZROO7ZGFV5oSel3hyKrvZ60Xth/top?onlyWorld=true&length=3&offset=92`):\n\n```json\n{\n  \"groupUid\": \"ed0f8dd1-247d-4563-95e2-f8e824dc4c2f\",\n  \"mapUid\": \"tZROO7ZGFV5oSel3hyKrvZ60Xth\",\n  \"tops\": [\n    {\n      \"zoneId\": \"301e1b69-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"World\",\n      \"top\": [\n        {\n          \"accountId\": \"98ba7b4e-597b-4d7a-8878-0f910c66f4d6\",\n          \"zoneId\": \"3022d1af-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Massachusetts\",\n          \"position\": 93,\n          \"score\": 46094\n        },\n        {\n          \"accountId\": \"34c6cbff-c169-4f75-9998-2c73b8ee3673\",\n          \"zoneId\": \"301fa93b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Nord\",\n          \"position\": 94,\n          \"score\": 46100\n        },\n        {\n          \"accountId\": \"dc02db10-27bb-4e63-91f3-866d02b9a4de\",\n          \"zoneId\": \"30224020-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Madeira\",\n          \"position\": 95,\n          \"score\": 46102\n        }\n      ]\n    }\n  ]\n}\n```\n\n-----\n\nExample response (`/api/token/leaderboard/group/ed0f8dd1-247d-4563-95e2-f8e824dc4c2f/map/tZROO7ZGFV5oSel3hyKrvZ60Xth/top?length=1&offset=92`):\n\n```json\n{\n  \"groupUid\": \"ed0f8dd1-247d-4563-95e2-f8e824dc4c2f\",\n  \"mapUid\": \"tZROO7ZGFV5oSel3hyKrvZ60Xth\",\n  \"tops\": [\n    {\n      \"zoneId\": \"301e1b69-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"World\",\n      \"top\": [\n        {\n          \"accountId\": \"d46fb45d-d422-47c9-9785-67270a311e25\",\n          \"zoneId\": \"301f555b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Středočeský kraj\",\n          \"position\": 1,\n          \"score\": 44927\n        },\n        {\n          \"accountId\": \"d320a237-1b0a-4069-af83-f2c09fbf042e\",\n          \"zoneId\": \"301e2e52-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Australian Capital Territory\",\n          \"position\": 2,\n          \"score\": 45088\n        },\n        {\n          \"accountId\": \"65341b56-1625-4df2-8fb4-ad7145c03c34\",\n          \"zoneId\": \"301fea75-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Réunion\",\n          \"position\": 3,\n          \"score\": 45167\n        },\n        {\n          \"accountId\": \"95f2b15a-cf1e-4e41-b826-21889fdb26d8\",\n          \"zoneId\": \"302255bf-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Primorska\",\n          \"position\": 4,\n          \"score\": 45191\n        },\n        {\n          \"accountId\": \"bd45204c-80f1-4809-b983-38b3f0ffc1ef\",\n          \"zoneId\": \"3020a27d-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Norway\",\n          \"position\": 5,\n          \"score\": 45211\n        }\n      ]\n    },\n    {\n      \"zoneId\": \"301e237a-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"Oceania\",\n      \"top\": [\n        {\n          \"accountId\": \"d320a237-1b0a-4069-af83-f2c09fbf042e\",\n          \"zoneId\": \"301e2e52-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Australian Capital Territory\",\n          \"position\": 1,\n          \"score\": 45088\n        },\n        {\n          \"accountId\": \"5a1b3368-d3cb-4a13-93e8-ff9800d7df2f\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 2,\n          \"score\": 46855\n        },\n        {\n          \"accountId\": \"5936d8dc-3a5b-4daa-a95f-15d75e98b210\",\n          \"zoneId\": \"30209ed5-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New Zealand\",\n          \"position\": 3,\n          \"score\": 47837\n        },\n        {\n          \"accountId\": \"f6cb57dd-7a38-4a09-9e5c-cfc104e42c91\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 4,\n          \"score\": 47840\n        },\n        {\n          \"accountId\": \"a9d156e5-f2f7-4f3d-a2f2-5f5102751f2a\",\n          \"zoneId\": \"30209ed5-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New Zealand\",\n          \"position\": 5,\n          \"score\": 47875\n        }\n      ]\n    },\n    {\n      \"zoneId\": \"301e2dc2-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"Australia\",\n      \"top\": [\n        {\n          \"accountId\": \"d320a237-1b0a-4069-af83-f2c09fbf042e\",\n          \"zoneId\": \"301e2e52-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Australian Capital Territory\",\n          \"position\": 1,\n          \"score\": 45088\n        },\n        {\n          \"accountId\": \"5a1b3368-d3cb-4a13-93e8-ff9800d7df2f\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 2,\n          \"score\": 46855\n        },\n        {\n          \"accountId\": \"f6cb57dd-7a38-4a09-9e5c-cfc104e42c91\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 3,\n          \"score\": 47840\n        },\n        {\n          \"accountId\": \"3c1505cd-8a53-4e4e-817c-d808c277e64c\",\n          \"zoneId\": \"301e34ec-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"Queensland\",\n          \"position\": 4,\n          \"score\": 47897\n        },\n        {\n          \"accountId\": \"51812800-8116-430e-a286-c06db919e80e\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 5,\n          \"score\": 47973\n        }\n      ]\n    },\n    {\n      \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n      \"zoneName\": \"New South Wales\",\n      \"top\": [\n        {\n          \"accountId\": \"5a1b3368-d3cb-4a13-93e8-ff9800d7df2f\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 1,\n          \"score\": 46855\n        },\n        {\n          \"accountId\": \"f6cb57dd-7a38-4a09-9e5c-cfc104e42c91\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 2,\n          \"score\": 47840\n        },\n        {\n          \"accountId\": \"51812800-8116-430e-a286-c06db919e80e\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 3,\n          \"score\": 47973\n        },\n        {\n          \"accountId\": \"ea0213fe-b2ef-43a4-867a-6aec8d59f034\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 4,\n          \"score\": 49490\n        },\n        {\n          \"accountId\": \"3e1ecaff-d08e-4057-b224-829507885bd6\",\n          \"zoneId\": \"301e309b-7e13-11e8-8060-e284abfd2bc4\",\n          \"zoneName\": \"New South Wales\",\n          \"position\": 5,\n          \"score\": 50162\n        }\n      ]\n    }\n  ]\n}\n```\n\n-----\n\nExample errors:\n\nwhen `length < 0` and/or `offset < 0`:\n```json\n[\"length:error-greaterOrEqualThan\",\"offset:error-greaterOrEqualThan\"]\n```\n"
+                            }
+                        ],
+                        "subCategories": []
+                    }
+                ]
+            },
+            {
                 "name": "Players",
                 "routes": [
                     {
