@@ -2,12 +2,12 @@
   "name": "nadeoserviceshelper-doc-builder",
   "version": "1.0.0",
   "description": "JSON Builder for NadeoServices Helper",
-  "main": "script/index.js",
+  "main": "script/build.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "build": "node script/."
+    "build": "node script/build.js"
   },
   "repository": {
     "type": "git",
