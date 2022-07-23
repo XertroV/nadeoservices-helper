@@ -1,9 +1,9 @@
 ---
 audience: NadeoClubServices
+url: https://competition.trackmania.nadeo.club
 route: /api/daily-cup/current
 description: Get the status and details of the current or next Cup of the Day
 method: GET
-parameters: {}
 ---
 
 Get the status and details of the current or next Cup of the Day.
