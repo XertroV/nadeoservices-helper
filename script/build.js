@@ -63,7 +63,5 @@ let allFilesCategorized = {},
     const dryRun = ['-n', '--dry-run'].map(v => process.argv.includes(v)).includes(true);
     if (!dryRun) {
         fs.writeFileSync('./api/docs.json', JSON.stringify(root, null, 4));
-    } else {
-        console.info('Dry Run: skipping writing output to ./api/docs.json.');
     }
 })();
